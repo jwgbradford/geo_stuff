@@ -1,4 +1,4 @@
-import pandas
+import pandas, json
 
 ''' this is the dictionary structure we want to end up with
 {"study_number" : {
@@ -49,3 +49,7 @@ for study_id in df['Study_number'].unique():
     # we can save it in our main dictionary
     time_series_data[study_id] = time_series
 print(time_series_data)
+filename = 'time_data.csv'
+with open(filename, 'w') as file:
+    json.dump(time_series_data, file, indent=2)
+file.close
