@@ -1,4 +1,5 @@
 import pandas, json
+from datetime import datetime
 
 ''' this is the dictionary structure we want to end up with
 {"study_number" : {
@@ -25,7 +26,10 @@ for i in df_covid['state_id'].unique():
         covid_dict[i][j[0]]={'color':j[1],'opacity':0.7}
 '''
 
-# note for this example, I don't convert mid-year into millisecond
+''' note for this example, I don't convert mid-year into millisecond
+also drawing on this example
+https://nbviewer.jupyter.org/github/python-visualization/folium/blob/master/examples/TimeSliderChoropleth.ipynb
+'''
 
 time_series_data = {}
 for study_id in df['Study_number'].unique():
@@ -44,7 +48,11 @@ for study_id in df['Study_number'].unique():
         # the data is now in list, so we can't use our column names to index
         # in the list, mid_year is index 2 and rs_annual is index 3
         # as we're using study_number as the set index, it doesn't get returned in study_data
-        time_series[study_data[2]] = study_data[3]
+        dt_time = study_data[2][:4] + '-06-01'
+        dt_obj = datetime.strptime(dt_time, '%Y-%m-%d')
+        millisec = dt_obj.timestamp()
+        dt_index = str(millisec)
+        time_series[dt_index] = study_data[3]
     # once we have picked up all the values for a unique study_number
     # we can save it in our main dictionary
     time_series_data[study_id] = time_series
