@@ -31,7 +31,7 @@ also drawing on this example
 https://nbviewer.jupyter.org/github/python-visualization/folium/blob/master/examples/TimeSliderChoropleth.ipynb
 '''
 
-time_series_data = {}
+time_series_dict = {}
 for study_id in df['Study_number'].unique():
     ''' 
     This is the first difference, instead of doing everything in the one dictionary.
@@ -55,9 +55,9 @@ for study_id in df['Study_number'].unique():
         time_series[dt_index] = study_data[3]
     # once we have picked up all the values for a unique study_number
     # we can save it in our main dictionary
-    time_series_data[study_id] = time_series
-print(time_series_data)
-filename = 'time_data.csv'
+    time_series_dict[study_id] = time_series
+print(time_series_dict)
+filename = 'time_data.json'
 with open(filename, 'w') as file:
-    json.dump(time_series_data, file, indent=2)
+    json.dump(time_series_dict, file, indent=2)
 file.close
