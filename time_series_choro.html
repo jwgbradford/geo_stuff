@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_50b5617e16ba49babbbc5f1ac704fc1d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_50b5617e16ba49babbbc5f1ac704fc1d" ></div>
+        
+</body>
+<script>    
+    
+            var map_50b5617e16ba49babbbc5f1ac704fc1d = L.map(
+                "map_50b5617e16ba49babbbc5f1ac704fc1d",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_295950312bd04735b725ee756430021f = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_50b5617e16ba49babbbc5f1ac704fc1d);
+        
+    
+            var timestamps = ["1025611200.0", "1057147200.0", "1088683200.0", "1120305600.0", "1151841600.0", "1183377600.0", "1214913600.0", "1246536000.0", "1278072000.0", "1309608000.0", "1341144000.0", "1372766400.0", "1404302400.0", "1435838400.0", "1467374400.0", "930916800.0", "962452800.0", "994075200.0"];
+            var styledict = {"10066": {"1025611200.0": {"color": "#d380beff", "opacity": 1.0}, "1057147200.0": {"color": "#da70b6ff", "opacity": 1.0}, "1088683200.0": {"color": "#d7bfddff", "opacity": 1.0}, "1120305600.0": {"color": "#d0aad3ff", "opacity": 1.0}, "1151841600.0": {"color": "#d777b9ff", "opacity": 1.0}, "1183377600.0": {"color": "#c994c7ff", "opacity": 1.0}, "1214913600.0": {"color": "#e6ddedff", "opacity": 1.0}, "1246536000.0": {"color": "#dcc9e2ff", "opacity": 1.0}, "1278072000.0": {"color": "#f7f4f9ff", "opacity": 1.0}, "1309608000.0": {"color": "#f5f2f8ff", "opacity": 1.0}, "1341144000.0": {"color": "#e8e2f0ff", "opacity": 1.0}, "1372766400.0": {"color": "#eae4f1ff", "opacity": 1.0}, "1404302400.0": {"color": "#ece7f2ff", "opacity": 1.0}, "1435838400.0": {"color": "#f2eef6ff", "opacity": 1.0}, "1467374400.0": {"color": "#f0ebf5ff", "opacity": 1.0}, "930916800.0": {"color": "#720026ff", "opacity": 1.0}, "962452800.0": {"color": "#67001fff", "opacity": 1.0}, "994075200.0": {"color": "#e32480ff", "opacity": 1.0}}};
+            var current_timestamp = timestamps[0];
+
+            // insert time slider
+            d3.select("body").insert("p", ":first-child").append("input")
+                .attr("type", "range")
+                .attr("width", "100px")
+                .attr("min", 0)
+                .attr("max", timestamps.length - 1)
+                .attr("value", 0)
+                .attr("id", "slider")
+                .attr("step", "1")
+                .style('align', 'center');
+
+            // insert time slider output BEFORE time slider (text on top of slider)
+            d3.select("body").insert("p", ":first-child").append("output")
+                .attr("width", "100")
+                .attr("id", "slider-value")
+                .style('font-size', '18px')
+                .style('text-align', 'center')
+                .style('font-weight', '500%');
+
+            var datestring = new Date(parseInt(current_timestamp)*1000).toDateString();
+            d3.select("output#slider-value").text(datestring);
+
+            fill_map = function(){
+                for (var feature_id in styledict){
+                    let style = styledict[feature_id]//[current_timestamp];
+                    var fillColor = 'white';
+                    var opacity = 0;
+                    if (current_timestamp in style){
+                        fillColor = style[current_timestamp]['color'];
+                        opacity = style[current_timestamp]['opacity'];
+                        d3.selectAll('#feature-'+feature_id
+                        ).attr('fill', fillColor)
+                        .style('fill-opacity', opacity);
+                    }
+                }
+            }
+
+            d3.select("#slider").on("input", function() {
+                current_timestamp = timestamps[this.value];
+                var datestring = new Date(parseInt(current_timestamp)*1000).toDateString();
+                d3.select("output#slider-value").text(datestring);
+                fill_map();
+            });
+
+            
+
+            var macro_element_5cf7f9f8bebb44c09389c5a07df30d47 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[["-3.465277778", "53.05527778"], ["-3.2652777779999997", "53.05527778"], ["-3.2652777779999997", "53.15527778"], ["-3.465277778", "53.15527778"], ["-3.465277778", "53.05527778"]]], "type": "Polygon"}, "id": "10066", "properties": {}, "type": "Feature"}], "type": "FeatureCollection"}
+            ).addTo(map_50b5617e16ba49babbbc5f1ac704fc1d);
+
+            macro_element_5cf7f9f8bebb44c09389c5a07df30d47.setStyle(function(feature) {
+                if (feature.properties.style !== undefined){
+                    return feature.properties.style;
+                }
+                else{
+                    return "";
+                }
+            });
+
+            function onOverlayAdd(e) {
+                macro_element_5cf7f9f8bebb44c09389c5a07df30d47.eachLayer(function (layer) {
+                    layer._path.id = 'feature-' + layer.feature.id;
+                });
+
+                d3.selectAll('path')
+                .attr('stroke', 'white')
+                .attr('stroke-width', 0.8)
+                .attr('stroke-dasharray', '5,5')
+                .attr('fill-opacity', 0);
+
+                fill_map();
+            }
+            map_50b5617e16ba49babbbc5f1ac704fc1d.on('overlayadd', onOverlayAdd);
+
+            onOverlayAdd(); // fill map as layer is loaded
+        
+</script>
