@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8d6829d47272465e8f94df5a8adefe80 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_8d6829d47272465e8f94df5a8adefe80" ></div>
+        
+</body>
+<script>    
+    
+            var map_8d6829d47272465e8f94df5a8adefe80 = L.map(
+                "map_8d6829d47272465e8f94df5a8adefe80",
+                {
+                    center: [53.05, -3.45],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4c63ab71f85946e48781c55039cda7ba = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var tile_layer_50b45971048246ac9cee98b009b989b0 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var tile_layer_1809721783194b1caae92b6235979f81 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var tile_layer_4a1f6d88f7cf44debcca3708b0e8a91f = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var tile_layer_35d889c148a8421aa8c8ef4e6b45c759 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "Esri", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var feature_group_302dd47f3f444bb49bcc54d8ed298bdb = L.featureGroup(
+                {}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var marker_cluster_41f14f9940bc4d869855b4c813d2459b = L.markerClusterGroup(
+                {}
+            );
+            feature_group_302dd47f3f444bb49bcc54d8ed298bdb.addLayer(marker_cluster_41f14f9940bc4d869855b4c813d2459b);
+        
+    
+            var timestamps = ["1009843200", "1025611200", "1041379200", "1057147200", "1072915200", "1088683200", "1104537600", "1120305600", "1136073600", "1151841600", "1167609600", "1183377600", "1199145600", "1214913600", "1230768000", "1246536000", "1262304000", "1278072000", "1293840000", "1309608000", "1325376000", "1341144000", "1356998400", "1372766400", "1388534400", "1420070400", "725846400", "757382400", "788918400", "820454400", "852076800", "883612800", "915148800", "946684800", "978307200", "994075200"];
+            var styledict = {"0": {"1214913600": {"color": "#9e0142ff", "opacity": 0.7}, "1246536000": {"color": "#9e0142ff", "opacity": 0.7}, "1278072000": {"color": "#9e0142ff", "opacity": 0.7}, "1309608000": {"color": "#9e0142ff", "opacity": 0.7}, "1341144000": {"color": "#9e0142ff", "opacity": 0.7}, "1372766400": {"color": "#9e0142ff", "opacity": 0.7}}, "1": {"1151841600": {"color": "#fdae61ff", "opacity": 0.7}, "1183377600": {"color": "#fdae61ff", "opacity": 0.7}, "1214913600": {"color": "#f46d43ff", "opacity": 0.7}, "1246536000": {"color": "#f46d43ff", "opacity": 0.7}, "1278072000": {"color": "#f46d43ff", "opacity": 0.7}, "1309608000": {"color": "#f46d43ff", "opacity": 0.7}, "1341144000": {"color": "#f46d43ff", "opacity": 0.7}, "1372766400": {"color": "#fdae61ff", "opacity": 0.7}}, "2": {"1057147200": {"color": "#fdae61ff", "opacity": 0.7}, "1088683200": {"color": "#f46d43ff", "opacity": 0.7}, "1120305600": {"color": "#fdae61ff", "opacity": 0.7}, "1151841600": {"color": "#fdae61ff", "opacity": 0.7}}, "3": {"1325376000": {"color": "#fee08bff", "opacity": 0.7}, "1356998400": {"color": "#ffffbfff", "opacity": 0.7}, "1388534400": {"color": "#ffffbfff", "opacity": 0.7}, "1420070400": {"color": "#fee08bff", "opacity": 0.7}}, "4": {"1009843200": {"color": "#d53e4fff", "opacity": 0.7}, "1041379200": {"color": "#d53e4fff", "opacity": 0.7}, "1072915200": {"color": "#d53e4fff", "opacity": 0.7}, "1104537600": {"color": "#d53e4fff", "opacity": 0.7}, "1136073600": {"color": "#d53e4fff", "opacity": 0.7}, "1167609600": {"color": "#d53e4fff", "opacity": 0.7}, "1199145600": {"color": "#9e0142ff", "opacity": 0.7}, "1230768000": {"color": "#9e0142ff", "opacity": 0.7}, "1262304000": {"color": "#9e0142ff", "opacity": 0.7}, "1293840000": {"color": "#9e0142ff", "opacity": 0.7}, "1325376000": {"color": "#9e0142ff", "opacity": 0.7}, "946684800": {"color": "#fdae61ff", "opacity": 0.7}, "978307200": {"color": "#f46d43ff", "opacity": 0.7}}, "5": {"1246536000": {"color": "#d53e4fff", "opacity": 0.7}, "1278072000": {"color": "#9e0142ff", "opacity": 0.7}, "1309608000": {"color": "#9e0142ff", "opacity": 0.7}, "1341144000": {"color": "#9e0142ff", "opacity": 0.7}}, "6": {"1041379200": {"color": "#f46d43ff", "opacity": 0.7}, "1072915200": {"color": "#f46d43ff", "opacity": 0.7}, "1104537600": {"color": "#d53e4fff", "opacity": 0.7}, "1136073600": {"color": "#d53e4fff", "opacity": 0.7}, "1167609600": {"color": "#d53e4fff", "opacity": 0.7}, "1199145600": {"color": "#d53e4fff", "opacity": 0.7}, "1230768000": {"color": "#f46d43ff", "opacity": 0.7}, "1262304000": {"color": "#d53e4fff", "opacity": 0.7}}, "7": {"725846400": {"color": "#abdda4ff", "opacity": 0.7}, "757382400": {"color": "#ffffbfff", "opacity": 0.7}, "788918400": {"color": "#ffffbfff", "opacity": 0.7}, "820454400": {"color": "#fee08bff", "opacity": 0.7}, "852076800": {"color": "#5e4fa2ff", "opacity": 0.7}, "883612800": {"color": "#abdda4ff", "opacity": 0.7}}, "8": {"1009843200": {"color": "#fee08bff", "opacity": 0.7}, "1041379200": {"color": "#fee08bff", "opacity": 0.7}, "915148800": {"color": "#fee08bff", "opacity": 0.7}, "946684800": {"color": "#fee08bff", "opacity": 0.7}, "978307200": {"color": "#fee08bff", "opacity": 0.7}}, "9": {"1009843200": {"color": "#f46d43ff", "opacity": 0.7}, "1041379200": {"color": "#fdae61ff", "opacity": 0.7}, "852076800": {"color": "#f46d43ff", "opacity": 0.7}, "883612800": {"color": "#f46d43ff", "opacity": 0.7}, "915148800": {"color": "#f46d43ff", "opacity": 0.7}, "946684800": {"color": "#f46d43ff", "opacity": 0.7}, "978307200": {"color": "#f46d43ff", "opacity": 0.7}}, "10": {"1009843200": {"color": "#fdae61ff", "opacity": 0.7}, "1041379200": {"color": "#fdae61ff", "opacity": 0.7}, "820454400": {"color": "#fdae61ff", "opacity": 0.7}, "852076800": {"color": "#f46d43ff", "opacity": 0.7}, "883612800": {"color": "#fee08bff", "opacity": 0.7}, "915148800": {"color": "#d53e4fff", "opacity": 0.7}, "946684800": {"color": "#fdae61ff", "opacity": 0.7}, "978307200": {"color": "#f46d43ff", "opacity": 0.7}}, "11": {"1009843200": {"color": "#fdae61ff", "opacity": 0.7}, "1041379200": {"color": "#fdae61ff", "opacity": 0.7}, "1072915200": {"color": "#fee08bff", "opacity": 0.7}, "1104537600": {"color": "#fdae61ff", "opacity": 0.7}, "1136073600": {"color": "#fdae61ff", "opacity": 0.7}, "978307200": {"color": "#f46d43ff", "opacity": 0.7}}, "12": {"1009843200": {"color": "#f46d43ff", "opacity": 0.7}, "1041379200": {"color": "#fdae61ff", "opacity": 0.7}, "1072915200": {"color": "#fee08bff", "opacity": 0.7}, "1104537600": {"color": "#fee08bff", "opacity": 0.7}, "978307200": {"color": "#f46d43ff", "opacity": 0.7}}, "13": {"1136073600": {"color": "#66c2a5ff", "opacity": 0.7}, "1167609600": {"color": "#abdda4ff", "opacity": 0.7}, "1199145600": {"color": "#e6f598ff", "opacity": 0.7}, "1230768000": {"color": "#ffffbfff", "opacity": 0.7}}, "14": {"1041379200": {"color": "#fdae61ff", "opacity": 0.7}, "1072915200": {"color": "#fee08bff", "opacity": 0.7}, "1104537600": {"color": "#fee08bff", "opacity": 0.7}, "1136073600": {"color": "#fee08bff", "opacity": 0.7}, "1167609600": {"color": "#fdae61ff", "opacity": 0.7}, "1199145600": {"color": "#fdae61ff", "opacity": 0.7}, "1230768000": {"color": "#fdae61ff", "opacity": 0.7}}, "15": {"1167609600": {"color": "#f46d43ff", "opacity": 0.7}, "1199145600": {"color": "#f46d43ff", "opacity": 0.7}, "1230768000": {"color": "#d53e4fff", "opacity": 0.7}, "1262304000": {"color": "#d53e4fff", "opacity": 0.7}}, "16": {"1167609600": {"color": "#f46d43ff", "opacity": 0.7}, "1199145600": {"color": "#f46d43ff", "opacity": 0.7}, "1230768000": {"color": "#f46d43ff", "opacity": 0.7}, "1262304000": {"color": "#f46d43ff", "opacity": 0.7}}, "17": {"1167609600": {"color": "#d53e4fff", "opacity": 0.7}, "1199145600": {"color": "#d53e4fff", "opacity": 0.7}, "1230768000": {"color": "#d53e4fff", "opacity": 0.7}, "1262304000": {"color": "#d53e4fff", "opacity": 0.7}}, "18": {"1167609600": {"color": "#f46d43ff", "opacity": 0.7}, "1199145600": {"color": "#f46d43ff", "opacity": 0.7}, "1230768000": {"color": "#f46d43ff", "opacity": 0.7}, "1262304000": {"color": "#f46d43ff", "opacity": 0.7}}, "19": {"1025611200": {"color": "#fee08bff", "opacity": 0.7}, "1057147200": {"color": "#fdae61ff", "opacity": 0.7}, "1088683200": {"color": "#fdae61ff", "opacity": 0.7}, "994075200": {"color": "#fee08bff", "opacity": 0.7}}, "20": {"1167609600": {"color": "#f46d43ff", "opacity": 0.7}, "1199145600": {"color": "#f46d43ff", "opacity": 0.7}, "1230768000": {"color": "#f46d43ff", "opacity": 0.7}, "1262304000": {"color": "#f46d43ff", "opacity": 0.7}}, "21": {"1167609600": {"color": "#66c2a5ff", "opacity": 0.7}, "1199145600": {"color": "#3288bdff", "opacity": 0.7}, "1230768000": {"color": "#5e4fa2ff", "opacity": 0.7}, "1262304000": {"color": "#3288bdff", "opacity": 0.7}}, "22": {"1041379200": {"color": "#f46d43ff", "opacity": 0.7}, "1072915200": {"color": "#f46d43ff", "opacity": 0.7}, "1104537600": {"color": "#f46d43ff", "opacity": 0.7}, "1136073600": {"color": "#f46d43ff", "opacity": 0.7}, "1167609600": {"color": "#f46d43ff", "opacity": 0.7}, "1199145600": {"color": "#fdae61ff", "opacity": 0.7}, "1230768000": {"color": "#f46d43ff", "opacity": 0.7}}, "23": {"1025611200": {"color": "#f46d43ff", "opacity": 0.7}, "1057147200": {"color": "#f46d43ff", "opacity": 0.7}, "1088683200": {"color": "#f46d43ff", "opacity": 0.7}, "1120305600": {"color": "#f46d43ff", "opacity": 0.7}, "1151841600": {"color": "#f46d43ff", "opacity": 0.7}, "1183377600": {"color": "#f46d43ff", "opacity": 0.7}, "1214913600": {"color": "#f46d43ff", "opacity": 0.7}, "1246536000": {"color": "#f46d43ff", "opacity": 0.7}}};
+            var current_timestamp = timestamps[0];
+
+            // insert time slider
+            d3.select("body").insert("p", ":first-child").append("input")
+                .attr("type", "range")
+                .attr("width", "100px")
+                .attr("min", 0)
+                .attr("max", timestamps.length - 1)
+                .attr("value", 0)
+                .attr("id", "slider")
+                .attr("step", "1")
+                .style('align', 'center');
+
+            // insert time slider output BEFORE time slider (text on top of slider)
+            d3.select("body").insert("p", ":first-child").append("output")
+                .attr("width", "100")
+                .attr("id", "slider-value")
+                .style('font-size', '18px')
+                .style('text-align', 'center')
+                .style('font-weight', '500%');
+
+            var datestring = new Date(parseInt(current_timestamp)*1000).toDateString();
+            d3.select("output#slider-value").text(datestring);
+
+            fill_map = function(){
+                for (var feature_id in styledict){
+                    let style = styledict[feature_id]//[current_timestamp];
+                    var fillColor = 'white';
+                    var opacity = 0;
+                    if (current_timestamp in style){
+                        fillColor = style[current_timestamp]['color'];
+                        opacity = style[current_timestamp]['opacity'];
+                        d3.selectAll('#feature-'+feature_id
+                        ).attr('fill', fillColor)
+                        .style('fill-opacity', opacity);
+                    }
+                }
+            }
+
+            d3.select("#slider").on("input", function() {
+                current_timestamp = timestamps[this.value];
+                var datestring = new Date(parseInt(current_timestamp)*1000).toDateString();
+                d3.select("output#slider-value").text(datestring);
+                fill_map();
+            });
+
+            
+
+            var macro_element_b3289dd9c2774866a4588f3944247105 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[["-3.5500000000000003", "53.0"], ["-3.35", "53.0"], ["-3.35", "53.099999999999994"], ["-3.5500000000000003", "53.099999999999994"], ["-3.5500000000000003", "53.0"]]], "type": "Polygon"}, "id": 0, "properties": {"Country": "UK", "Region": "NE Wales", "count": "13", "end_date": "2012-01-01", "max": "907.4", "mean": "485.2", "min": "270.38", "site": "10717_53.05_-3.45", "start_date": "2000-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-105.6", "53.78"], ["-105.4", "53.78"], ["-105.4", "53.879999999999995"], ["-105.6", "53.879999999999995"], ["-105.6", "53.78"]]], "type": "Polygon"}, "id": 1, "properties": {"Country": "Canada", "Region": "Saskatchewan", "count": "8", "end_date": "2009-02-07", "max": "712.0", "mean": "661.2", "min": "598.0", "site": "8534_53.83_-105.5", "start_date": "2002-02-07"}, "type": "Feature"}, {"geometry": {"coordinates": [[["138.665", "35.394000000000005"], ["138.86499999999998", "35.394000000000005"], ["138.86499999999998", "35.494"], ["138.665", "35.494"], ["138.665", "35.394000000000005"]]], "type": "Polygon"}, "id": 2, "properties": {"Country": "Japan", "Region": "Yamanashi", "count": "8", "end_date": "2013-02-07", "max": "839.0", "mean": "755.6", "min": "704.0", "site": "10466_35.444_138.765", "start_date": "2006-02-07"}, "type": "Feature"}, {"geometry": {"coordinates": [[["111.35000000000001", "28.86"], ["111.55", "28.86"], ["111.55", "28.96"], ["111.35000000000001", "28.96"], ["111.35000000000001", "28.86"]]], "type": "Polygon"}, "id": 3, "properties": {"Country": "China", "Region": "Hunan", "count": "8", "end_date": "2010-01-01", "max": "730.0", "mean": "592.1", "min": "498.0", "site": "10910_28.91_111.45", "start_date": "2003-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-72.28", "42.480000000000004"], ["-72.08000000000001", "42.480000000000004"], ["-72.08000000000001", "42.58"], ["-72.28", "42.58"], ["-72.28", "42.480000000000004"]]], "type": "Polygon"}, "id": 4, "properties": {"Country": "USA", "Region": "Massachusetts", "count": "8", "end_date": "2003-01-01", "max": "1005.0", "mean": "778.4", "min": "452.0", "site": "3302_42.53_-72.18", "start_date": "1996-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-68.83", "45.150000000000006"], ["-68.63000000000001", "45.150000000000006"], ["-68.63000000000001", "45.25"], ["-68.83", "45.25"], ["-68.83", "45.150000000000006"]]], "type": "Polygon"}, "id": 5, "properties": {"Country": "USA", "Region": "Maine", "count": "7", "end_date": "2003-01-01", "max": "810.0", "mean": "734.3", "min": "610.0", "site": "3301_45.2_-68.73", "start_date": "1997-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["112.41000000000001", "23.15"], ["112.61", "23.15"], ["112.61", "23.25"], ["112.41000000000001", "23.25"], ["112.41000000000001", "23.15"]]], "type": "Polygon"}, "id": 6, "properties": {"Country": "China", "Region": "Guangdong", "count": "7", "end_date": "2009-01-01", "max": "821.0", "mean": "725.3", "min": "680.0", "site": "7634_23.2_112.51", "start_date": "2003-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-125.43508329999999", "49.818833330000004"], ["-125.2350833", "49.818833330000004"], ["-125.2350833", "49.91883333"], ["-125.43508329999999", "49.91883333"], ["-125.43508329999999", "49.818833330000004"]]], "type": "Polygon"}, "id": 7, "properties": {"Country": "Canada", "Region": "British Columbia", "count": "7", "end_date": "2009-01-01", "max": "990.0", "mean": "929.0", "min": "826.0", "site": "6347_49.86883333_-125.3350833", "start_date": "2003-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-121.66", "44.400000000000006"], ["-121.46000000000001", "44.400000000000006"], ["-121.46000000000001", "44.5"], ["-121.66", "44.5"], ["-121.66", "44.400000000000006"]]], "type": "Polygon"}, "id": 8, "properties": {"Country": "USA", "Region": "Oregon", "count": "6", "end_date": "2006-01-01", "max": "1039.0", "mean": "810.7", "min": "612.0", "site": "4348_44.45_-121.56", "start_date": "2001-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["104.57000000000001", "35.150000000000006"], ["104.77", "35.150000000000006"], ["104.77", "35.25"], ["104.57000000000001", "35.25"], ["104.57000000000001", "35.150000000000006"]]], "type": "Polygon"}, "id": 9, "properties": {"Country": "China", "Region": "Shaanxi", "count": "6", "end_date": "2013-02-07", "max": "298.0", "mean": "254.8", "min": "226.0", "site": "10266_35.2_104.67", "start_date": "2008-01-07"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-97.42999999999999", "31.05"], ["-97.23", "31.05"], ["-97.23", "31.150000000000002"], ["-97.42999999999999", "31.150000000000002"], ["-97.42999999999999", "31.05"]]], "type": "Polygon"}, "id": 10, "properties": {"Country": "USA", "Region": "Texas", "count": "6", "end_date": "1998-01-01", "max": "2100.0", "mean": "1450.0", "min": "1000.0", "site": "1654_31.1_-97.33", "start_date": "1993-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-84.80999999999999", "45.540000000000006"], ["-84.61", "45.540000000000006"], ["-84.61", "45.64"], ["-84.80999999999999", "45.64"], ["-84.80999999999999", "45.540000000000006"]]], "type": "Polygon"}, "id": 11, "properties": {"Country": "USA", "Region": "Michigan", "count": "5", "end_date": "2003-01-01", "max": "1116.0", "mean": "1002.8", "min": "946.0", "site": "2904_45.59_-84.71", "start_date": "1999-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["142.0", "45.0"], ["142.2", "45.0"], ["142.2", "45.099999999999994"], ["142.0", "45.099999999999994"], ["142.0", "45.0"]]], "type": "Polygon"}, "id": 12, "properties": {"Country": "Japan", "Region": "Hokkaido", "count": "5", "end_date": "2005-01-01", "max": "1062.0", "mean": "877.0", "min": "671.0", "site": "5162_45.05_142.1", "start_date": "2001-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-0.64", "53.18"], ["-0.44000000000000006", "53.18"], ["-0.44000000000000006", "53.279999999999994"], ["-0.64", "53.279999999999994"], ["-0.64", "53.18"]]], "type": "Polygon"}, "id": 13, "properties": {"Country": "United Kingdom", "Region": "Lincolnshire", "count": "4", "end_date": "2012-01-07", "max": "422.0", "mean": "294.8", "min": "234.0", "site": "10807_53.23_-0.54", "start_date": "2009-02-07"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-125.0016667", "49.46972222"], ["-124.80166670000001", "49.46972222"], ["-124.80166670000001", "49.569722219999996"], ["-125.0016667", "49.569722219999996"], ["-125.0016667", "49.46972222"]]], "type": "Polygon"}, "id": 14, "properties": {"Country": "Canada", "Region": "British Columbia", "count": "4", "end_date": "2009-01-01", "max": "1666.0", "mean": "1454.0", "min": "1186.0", "site": "6347_49.51972222_-124.9016667", "start_date": "2006-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["120.7", "23.63"], ["120.89999999999999", "23.63"], ["120.89999999999999", "23.73"], ["120.7", "23.73"], ["120.7", "23.63"]]], "type": "Polygon"}, "id": 15, "properties": {"Country": "China", "Region": "Taiwan", "count": "4", "end_date": "2015-01-01", "max": "1200.0", "mean": "1141.2", "min": "1115.0", "site": "10536_23.68_120.8", "start_date": "2012-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["11.66666667", "48.883333330000006"], ["11.866666669999999", "48.883333330000006"], ["11.866666669999999", "48.98333333"], ["11.66666667", "48.98333333"], ["11.66666667", "48.883333330000006"]]], "type": "Polygon"}, "id": 16, "properties": {"Country": "Germany", "Region": "Bavaria", "count": "4", "end_date": "2010-01-01", "max": "704.0", "mean": "606.8", "min": "548.0", "site": "6576_48.93333333_11.76666667", "start_date": "2007-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["11.21666667", "49.36666667"], ["11.41666667", "49.36666667"], ["11.41666667", "49.466666669999995"], ["11.21666667", "49.466666669999995"], ["11.21666667", "49.36666667"]]], "type": "Polygon"}, "id": 17, "properties": {"Country": "Germany", "Region": "Bavaria", "count": "4", "end_date": "2010-01-01", "max": "758.0", "mean": "681.2", "min": "643.0", "site": "6576_49.41666667_11.31666667", "start_date": "2007-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["12.3", "49.883333330000006"], ["12.5", "49.883333330000006"], ["12.5", "49.98333333"], ["12.3", "49.98333333"], ["12.3", "49.883333330000006"]]], "type": "Polygon"}, "id": 18, "properties": {"Country": "Germany", "Region": "Bavaria", "count": "4", "end_date": "2010-01-01", "max": "582.0", "mean": "531.2", "min": "487.0", "site": "6576_49.93333333_12.4", "start_date": "2007-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["11.766666670000001", "50.08333333"], ["11.96666667", "50.08333333"], ["11.96666667", "50.183333329999996"], ["11.766666670000001", "50.183333329999996"], ["11.766666670000001", "50.08333333"]]], "type": "Polygon"}, "id": 19, "properties": {"Country": "Germany", "Region": "Bavaria", "count": "4", "end_date": "2010-01-01", "max": "717.0", "mean": "669.0", "min": "618.0", "site": "6576_50.13333333_11.86666667", "start_date": "2007-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["99.62", "18.37"], ["99.82", "18.37"], ["99.82", "18.470000000000002"], ["99.62", "18.470000000000002"], ["99.62", "18.37"]]], "type": "Polygon"}, "id": 20, "properties": {"Country": "Thailand", "Region": "Lampang", "count": "4", "end_date": "2004-01-07", "max": "1109.0", "mean": "959.0", "min": "784.0", "site": "7109_18.42_99.72", "start_date": "2001-02-07"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-3.333333333", "55.73333333"], ["-3.133333333", "55.73333333"], ["-3.133333333", "55.833333329999995"], ["-3.333333333", "55.833333329999995"], ["-3.333333333", "55.73333333"]]], "type": "Polygon"}, "id": 21, "properties": {"Country": "Scotland", "Region": "South East", "count": "4", "end_date": "2010-01-01", "max": "751.82", "mean": "696.8", "min": "653.58", "site": "7444_55.78333333_-3.233333333", "start_date": "2007-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["-3.1333333330000004", "55.816666670000004"], ["-2.933333333", "55.816666670000004"], ["-2.933333333", "55.91666667"], ["-3.1333333330000004", "55.91666667"], ["-3.1333333330000004", "55.816666670000004"]]], "type": "Polygon"}, "id": 22, "properties": {"Country": "Scotland", "Region": "South East", "count": "4", "end_date": "2010-01-01", "max": "2195.14", "mean": "1952.9", "min": "1755.24", "site": "7444_55.86666667_-3.0333333330000003", "start_date": "2007-01-01"}, "type": "Feature"}, {"geometry": {"coordinates": [[["116.5", "36.900000000000006"], ["116.69999999999999", "36.900000000000006"], ["116.69999999999999", "37.0"], ["116.5", "37.0"], ["116.5", "36.900000000000006"]]], "type": "Polygon"}, "id": 23, "properties": {"Country": "China", "Region": "Shandong", "count": "4", "end_date": "2006-02-07", "max": "893.0", "mean": "825.2", "min": "759.0", "site": "10524_36.95_116.6", "start_date": "2003-02-07"}, "type": "Feature"}], "type": "FeatureCollection"}
+            ).addTo(marker_cluster_41f14f9940bc4d869855b4c813d2459b);
+
+            macro_element_b3289dd9c2774866a4588f3944247105.setStyle(function(feature) {
+                if (feature.properties.style !== undefined){
+                    return feature.properties.style;
+                }
+                else{
+                    return "";
+                }
+            });
+
+            function onOverlayAdd(e) {
+                macro_element_b3289dd9c2774866a4588f3944247105.eachLayer(function (layer) {
+                    layer._path.id = 'feature-' + layer.feature.id;
+                });
+
+                d3.selectAll('path')
+                .attr('stroke', 'white')
+                .attr('stroke-width', 0.8)
+                .attr('stroke-dasharray', '5,5')
+                .attr('fill-opacity', 0);
+
+                fill_map();
+            }
+            marker_cluster_41f14f9940bc4d869855b4c813d2459b.on('overlayadd', onOverlayAdd);
+
+            onOverlayAdd(); // fill map as layer is loaded
+        
+    
+            var feature_group_bdd675529b104529afc15ea1e528bf58 = L.featureGroup(
+                {}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+        
+    
+            var marker_cluster_0240465cd74b4faf8de7ed9dd84275c0 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_bdd675529b104529afc15ea1e528bf58.addLayer(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+            var marker_48e7779edc484fa1a8ba65cc722b378d = L.marker(
+                [53.05, -3.45],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_ba843db6163648e8bd86a2a535d823c5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cb5a2d99f1f8469cbdb4ac10b0ddc250 = $(`<div id="html_cb5a2d99f1f8469cbdb4ac10b0ddc250" style="width: 100.0%; height: 100.0%;">id = 0,<br>site = 10717_53.05_-3.45,<br> Country = UK,<br> Region = NE Wales,<br> min = 270.38,<br> max = 907.4,<br> mean = 485.2,<br> count = 13,<br> start_date = 2000-01-01,<br> end_date = 2012-01-01</div>`)[0];
+            popup_ba843db6163648e8bd86a2a535d823c5.setContent(html_cb5a2d99f1f8469cbdb4ac10b0ddc250);
+        
+
+        marker_48e7779edc484fa1a8ba65cc722b378d.bindPopup(popup_ba843db6163648e8bd86a2a535d823c5)
+        ;
+
+        
+    
+    
+            var marker_30545eda3a734c37aa6a3fab2ad4ef01 = L.marker(
+                [53.83, -105.5],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_df499be9445444769c740f5eec6f2cf4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3473ce8425eb4a8084775cd81f618b35 = $(`<div id="html_3473ce8425eb4a8084775cd81f618b35" style="width: 100.0%; height: 100.0%;">id = 1,<br>site = 8534_53.83_-105.5,<br> Country = Canada,<br> Region = Saskatchewan,<br> min = 598.0,<br> max = 712.0,<br> mean = 661.2,<br> count = 8,<br> start_date = 2002-02-07,<br> end_date = 2009-02-07</div>`)[0];
+            popup_df499be9445444769c740f5eec6f2cf4.setContent(html_3473ce8425eb4a8084775cd81f618b35);
+        
+
+        marker_30545eda3a734c37aa6a3fab2ad4ef01.bindPopup(popup_df499be9445444769c740f5eec6f2cf4)
+        ;
+
+        
+    
+    
+            var marker_98e4dc90f9854afc85877743dd0c8f6c = L.marker(
+                [35.444, 138.765],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_61570261334f4052a2abb8145069cb6f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3d0f2a4c97c142e79b00dafa408cbdee = $(`<div id="html_3d0f2a4c97c142e79b00dafa408cbdee" style="width: 100.0%; height: 100.0%;">id = 2,<br>site = 10466_35.444_138.765,<br> Country = Japan,<br> Region = Yamanashi,<br> min = 704.0,<br> max = 839.0,<br> mean = 755.6,<br> count = 8,<br> start_date = 2006-02-07,<br> end_date = 2013-02-07</div>`)[0];
+            popup_61570261334f4052a2abb8145069cb6f.setContent(html_3d0f2a4c97c142e79b00dafa408cbdee);
+        
+
+        marker_98e4dc90f9854afc85877743dd0c8f6c.bindPopup(popup_61570261334f4052a2abb8145069cb6f)
+        ;
+
+        
+    
+    
+            var marker_614be8b7761d46cb9d751d34e3e3de76 = L.marker(
+                [28.91, 111.45],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_169f2d36017f43138d8d1244566e2499 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a5b8a9200a064331839fee904cb34f2f = $(`<div id="html_a5b8a9200a064331839fee904cb34f2f" style="width: 100.0%; height: 100.0%;">id = 3,<br>site = 10910_28.91_111.45,<br> Country = China,<br> Region = Hunan,<br> min = 498.0,<br> max = 730.0,<br> mean = 592.1,<br> count = 8,<br> start_date = 2003-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_169f2d36017f43138d8d1244566e2499.setContent(html_a5b8a9200a064331839fee904cb34f2f);
+        
+
+        marker_614be8b7761d46cb9d751d34e3e3de76.bindPopup(popup_169f2d36017f43138d8d1244566e2499)
+        ;
+
+        
+    
+    
+            var marker_4ae26078eed54b258964500cd689bdd6 = L.marker(
+                [42.53, -72.18],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_d820d01840a24592b6018fa2cf7ff616 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_61cc091f33f3490a8eebd8bb84c60cde = $(`<div id="html_61cc091f33f3490a8eebd8bb84c60cde" style="width: 100.0%; height: 100.0%;">id = 4,<br>site = 3302_42.53_-72.18,<br> Country = USA,<br> Region = Massachusetts,<br> min = 452.0,<br> max = 1005.0,<br> mean = 778.4,<br> count = 8,<br> start_date = 1996-01-01,<br> end_date = 2003-01-01</div>`)[0];
+            popup_d820d01840a24592b6018fa2cf7ff616.setContent(html_61cc091f33f3490a8eebd8bb84c60cde);
+        
+
+        marker_4ae26078eed54b258964500cd689bdd6.bindPopup(popup_d820d01840a24592b6018fa2cf7ff616)
+        ;
+
+        
+    
+    
+            var marker_9c27296f4d8343b994fbd0343f2cd254 = L.marker(
+                [45.2, -68.73],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_3c3851f425d742eca5783a46cf75d2eb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1799aa0bf38b4f5a851bb68476ae0747 = $(`<div id="html_1799aa0bf38b4f5a851bb68476ae0747" style="width: 100.0%; height: 100.0%;">id = 5,<br>site = 3301_45.2_-68.73,<br> Country = USA,<br> Region = Maine,<br> min = 610.0,<br> max = 810.0,<br> mean = 734.3,<br> count = 7,<br> start_date = 1997-01-01,<br> end_date = 2003-01-01</div>`)[0];
+            popup_3c3851f425d742eca5783a46cf75d2eb.setContent(html_1799aa0bf38b4f5a851bb68476ae0747);
+        
+
+        marker_9c27296f4d8343b994fbd0343f2cd254.bindPopup(popup_3c3851f425d742eca5783a46cf75d2eb)
+        ;
+
+        
+    
+    
+            var marker_14e893e47e1a43fc84b592423eb9da17 = L.marker(
+                [23.2, 112.51],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_c0fc38fe3ee5403a89c56efc20dac6ad = L.popup({"maxWidth": "100%"});
+
+        
+            var html_30fe50df16cf4fad982b869b0864be01 = $(`<div id="html_30fe50df16cf4fad982b869b0864be01" style="width: 100.0%; height: 100.0%;">id = 6,<br>site = 7634_23.2_112.51,<br> Country = China,<br> Region = Guangdong,<br> min = 680.0,<br> max = 821.0,<br> mean = 725.3,<br> count = 7,<br> start_date = 2003-01-01,<br> end_date = 2009-01-01</div>`)[0];
+            popup_c0fc38fe3ee5403a89c56efc20dac6ad.setContent(html_30fe50df16cf4fad982b869b0864be01);
+        
+
+        marker_14e893e47e1a43fc84b592423eb9da17.bindPopup(popup_c0fc38fe3ee5403a89c56efc20dac6ad)
+        ;
+
+        
+    
+    
+            var marker_1f5f2068502c46f393df243e3946ed36 = L.marker(
+                [49.86883333, -125.3350833],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_a73f4b02a5b84624a47e984b92f455b7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a46ef8ccf37c4ad7b249a4f614bd8446 = $(`<div id="html_a46ef8ccf37c4ad7b249a4f614bd8446" style="width: 100.0%; height: 100.0%;">id = 7,<br>site = 6347_49.86883333_-125.3350833,<br> Country = Canada,<br> Region = British Columbia,<br> min = 826.0,<br> max = 990.0,<br> mean = 929.0,<br> count = 7,<br> start_date = 2003-01-01,<br> end_date = 2009-01-01</div>`)[0];
+            popup_a73f4b02a5b84624a47e984b92f455b7.setContent(html_a46ef8ccf37c4ad7b249a4f614bd8446);
+        
+
+        marker_1f5f2068502c46f393df243e3946ed36.bindPopup(popup_a73f4b02a5b84624a47e984b92f455b7)
+        ;
+
+        
+    
+    
+            var marker_8436637d8ac74131911659fc9916b9bb = L.marker(
+                [44.45, -121.56],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_2ce00efea2084d5980d946b3627b8b80 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_27ceb89adb9745958a14681d85a595b1 = $(`<div id="html_27ceb89adb9745958a14681d85a595b1" style="width: 100.0%; height: 100.0%;">id = 8,<br>site = 4348_44.45_-121.56,<br> Country = USA,<br> Region = Oregon,<br> min = 612.0,<br> max = 1039.0,<br> mean = 810.7,<br> count = 6,<br> start_date = 2001-01-01,<br> end_date = 2006-01-01</div>`)[0];
+            popup_2ce00efea2084d5980d946b3627b8b80.setContent(html_27ceb89adb9745958a14681d85a595b1);
+        
+
+        marker_8436637d8ac74131911659fc9916b9bb.bindPopup(popup_2ce00efea2084d5980d946b3627b8b80)
+        ;
+
+        
+    
+    
+            var marker_4fc5fba1473b4833879e71f4fefd5156 = L.marker(
+                [35.2, 104.67],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_fbf0eadf69fe4eae823856326b756eca = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eaa60f1faf504826bdc2c3762b781737 = $(`<div id="html_eaa60f1faf504826bdc2c3762b781737" style="width: 100.0%; height: 100.0%;">id = 9,<br>site = 10266_35.2_104.67,<br> Country = China,<br> Region = Shaanxi,<br> min = 226.0,<br> max = 298.0,<br> mean = 254.8,<br> count = 6,<br> start_date = 2008-01-07,<br> end_date = 2013-02-07</div>`)[0];
+            popup_fbf0eadf69fe4eae823856326b756eca.setContent(html_eaa60f1faf504826bdc2c3762b781737);
+        
+
+        marker_4fc5fba1473b4833879e71f4fefd5156.bindPopup(popup_fbf0eadf69fe4eae823856326b756eca)
+        ;
+
+        
+    
+    
+            var marker_c51a4b0eb8554a9190cd67a57a841e18 = L.marker(
+                [31.1, -97.33],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_33d67871d4f34725b035104a3e7f3c61 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_200ad43f4ef84ff1849dce4a5808fd16 = $(`<div id="html_200ad43f4ef84ff1849dce4a5808fd16" style="width: 100.0%; height: 100.0%;">id = 10,<br>site = 1654_31.1_-97.33,<br> Country = USA,<br> Region = Texas,<br> min = 1000.0,<br> max = 2100.0,<br> mean = 1450.0,<br> count = 6,<br> start_date = 1993-01-01,<br> end_date = 1998-01-01</div>`)[0];
+            popup_33d67871d4f34725b035104a3e7f3c61.setContent(html_200ad43f4ef84ff1849dce4a5808fd16);
+        
+
+        marker_c51a4b0eb8554a9190cd67a57a841e18.bindPopup(popup_33d67871d4f34725b035104a3e7f3c61)
+        ;
+
+        
+    
+    
+            var marker_409c78111c774e71bae93b59df0df880 = L.marker(
+                [45.59, -84.71],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_9ca0a0306a8340d2ab0295099afcd5e2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a1ba4f8a741948a68031c500b2fb7672 = $(`<div id="html_a1ba4f8a741948a68031c500b2fb7672" style="width: 100.0%; height: 100.0%;">id = 11,<br>site = 2904_45.59_-84.71,<br> Country = USA,<br> Region = Michigan,<br> min = 946.0,<br> max = 1116.0,<br> mean = 1002.8,<br> count = 5,<br> start_date = 1999-01-01,<br> end_date = 2003-01-01</div>`)[0];
+            popup_9ca0a0306a8340d2ab0295099afcd5e2.setContent(html_a1ba4f8a741948a68031c500b2fb7672);
+        
+
+        marker_409c78111c774e71bae93b59df0df880.bindPopup(popup_9ca0a0306a8340d2ab0295099afcd5e2)
+        ;
+
+        
+    
+    
+            var marker_22bb3b72e587423ab6f193cc27cdfa83 = L.marker(
+                [45.05, 142.1],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_bbe586af293d4df9a263f8a3cfcf7379 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_912ab0c7d65940c4803d241a71191221 = $(`<div id="html_912ab0c7d65940c4803d241a71191221" style="width: 100.0%; height: 100.0%;">id = 12,<br>site = 5162_45.05_142.1,<br> Country = Japan,<br> Region = Hokkaido,<br> min = 671.0,<br> max = 1062.0,<br> mean = 877.0,<br> count = 5,<br> start_date = 2001-01-01,<br> end_date = 2005-01-01</div>`)[0];
+            popup_bbe586af293d4df9a263f8a3cfcf7379.setContent(html_912ab0c7d65940c4803d241a71191221);
+        
+
+        marker_22bb3b72e587423ab6f193cc27cdfa83.bindPopup(popup_bbe586af293d4df9a263f8a3cfcf7379)
+        ;
+
+        
+    
+    
+            var marker_cab076095c5a48378a20d5f0cbc0c612 = L.marker(
+                [53.23, -0.54],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_7bbec81b7ce8438ca2d24756cc4905fa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_20ed83e5bd794f1aa3742da1ae681ff0 = $(`<div id="html_20ed83e5bd794f1aa3742da1ae681ff0" style="width: 100.0%; height: 100.0%;">id = 13,<br>site = 10807_53.23_-0.54,<br> Country = United Kingdom,<br> Region = Lincolnshire,<br> min = 234.0,<br> max = 422.0,<br> mean = 294.8,<br> count = 4,<br> start_date = 2009-02-07,<br> end_date = 2012-01-07</div>`)[0];
+            popup_7bbec81b7ce8438ca2d24756cc4905fa.setContent(html_20ed83e5bd794f1aa3742da1ae681ff0);
+        
+
+        marker_cab076095c5a48378a20d5f0cbc0c612.bindPopup(popup_7bbec81b7ce8438ca2d24756cc4905fa)
+        ;
+
+        
+    
+    
+            var marker_c4fa3d0234634565bebf21dbd7ed02c3 = L.marker(
+                [49.51972222, -124.9016667],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_17b2417b64294497b78e3a1c86d17ca4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b05905d161a749d6b82def32bc72836b = $(`<div id="html_b05905d161a749d6b82def32bc72836b" style="width: 100.0%; height: 100.0%;">id = 14,<br>site = 6347_49.51972222_-124.9016667,<br> Country = Canada,<br> Region = British Columbia,<br> min = 1186.0,<br> max = 1666.0,<br> mean = 1454.0,<br> count = 4,<br> start_date = 2006-01-01,<br> end_date = 2009-01-01</div>`)[0];
+            popup_17b2417b64294497b78e3a1c86d17ca4.setContent(html_b05905d161a749d6b82def32bc72836b);
+        
+
+        marker_c4fa3d0234634565bebf21dbd7ed02c3.bindPopup(popup_17b2417b64294497b78e3a1c86d17ca4)
+        ;
+
+        
+    
+    
+            var marker_fd3735dffe914a63b7edd3b12502065d = L.marker(
+                [23.68, 120.8],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_e20e6366d3b644ebade0d531d891e26e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1fbd69c52d084b03ab35598e0bfa15bd = $(`<div id="html_1fbd69c52d084b03ab35598e0bfa15bd" style="width: 100.0%; height: 100.0%;">id = 15,<br>site = 10536_23.68_120.8,<br> Country = China,<br> Region = Taiwan,<br> min = 1115.0,<br> max = 1200.0,<br> mean = 1141.2,<br> count = 4,<br> start_date = 2012-01-01,<br> end_date = 2015-01-01</div>`)[0];
+            popup_e20e6366d3b644ebade0d531d891e26e.setContent(html_1fbd69c52d084b03ab35598e0bfa15bd);
+        
+
+        marker_fd3735dffe914a63b7edd3b12502065d.bindPopup(popup_e20e6366d3b644ebade0d531d891e26e)
+        ;
+
+        
+    
+    
+            var marker_51b3c7a9077c4b028d5fb39eba20e54a = L.marker(
+                [48.93333333, 11.76666667],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_70fc4f0718fb4b52bcc17a3751fc9efe = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a901665db6e5400c9f4c9a5f4c5583e2 = $(`<div id="html_a901665db6e5400c9f4c9a5f4c5583e2" style="width: 100.0%; height: 100.0%;">id = 16,<br>site = 6576_48.93333333_11.76666667,<br> Country = Germany,<br> Region = Bavaria,<br> min = 548.0,<br> max = 704.0,<br> mean = 606.8,<br> count = 4,<br> start_date = 2007-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_70fc4f0718fb4b52bcc17a3751fc9efe.setContent(html_a901665db6e5400c9f4c9a5f4c5583e2);
+        
+
+        marker_51b3c7a9077c4b028d5fb39eba20e54a.bindPopup(popup_70fc4f0718fb4b52bcc17a3751fc9efe)
+        ;
+
+        
+    
+    
+            var marker_e34e617d7e434b6b985a74893e323bc7 = L.marker(
+                [49.41666667, 11.31666667],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_590a2c2523934013a05d1bfe0db1080d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8b3a5bb68b564d39b16badf2aef58f4f = $(`<div id="html_8b3a5bb68b564d39b16badf2aef58f4f" style="width: 100.0%; height: 100.0%;">id = 17,<br>site = 6576_49.41666667_11.31666667,<br> Country = Germany,<br> Region = Bavaria,<br> min = 643.0,<br> max = 758.0,<br> mean = 681.2,<br> count = 4,<br> start_date = 2007-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_590a2c2523934013a05d1bfe0db1080d.setContent(html_8b3a5bb68b564d39b16badf2aef58f4f);
+        
+
+        marker_e34e617d7e434b6b985a74893e323bc7.bindPopup(popup_590a2c2523934013a05d1bfe0db1080d)
+        ;
+
+        
+    
+    
+            var marker_fcae9e89d3044cb7a04387fdaaba1c78 = L.marker(
+                [49.93333333, 12.4],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_46f4d2e9a6ab46508d73173847e8562a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_54c58af0f6994b9abb0522daeaf303c5 = $(`<div id="html_54c58af0f6994b9abb0522daeaf303c5" style="width: 100.0%; height: 100.0%;">id = 18,<br>site = 6576_49.93333333_12.4,<br> Country = Germany,<br> Region = Bavaria,<br> min = 487.0,<br> max = 582.0,<br> mean = 531.2,<br> count = 4,<br> start_date = 2007-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_46f4d2e9a6ab46508d73173847e8562a.setContent(html_54c58af0f6994b9abb0522daeaf303c5);
+        
+
+        marker_fcae9e89d3044cb7a04387fdaaba1c78.bindPopup(popup_46f4d2e9a6ab46508d73173847e8562a)
+        ;
+
+        
+    
+    
+            var marker_e3886861da954d309e89cfefe537276e = L.marker(
+                [50.13333333, 11.86666667],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_04b854a8f61e473eabf46099c97cd3cd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a717ebb9ae7c4dca96194f6326b342eb = $(`<div id="html_a717ebb9ae7c4dca96194f6326b342eb" style="width: 100.0%; height: 100.0%;">id = 19,<br>site = 6576_50.13333333_11.86666667,<br> Country = Germany,<br> Region = Bavaria,<br> min = 618.0,<br> max = 717.0,<br> mean = 669.0,<br> count = 4,<br> start_date = 2007-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_04b854a8f61e473eabf46099c97cd3cd.setContent(html_a717ebb9ae7c4dca96194f6326b342eb);
+        
+
+        marker_e3886861da954d309e89cfefe537276e.bindPopup(popup_04b854a8f61e473eabf46099c97cd3cd)
+        ;
+
+        
+    
+    
+            var marker_ef01dd4d25614066954bbb2ee4921e73 = L.marker(
+                [18.42, 99.72],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_92f2071cef274f5e9b22b87079ecb7c9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bdfde21ffa154bc09586be66b698e2b4 = $(`<div id="html_bdfde21ffa154bc09586be66b698e2b4" style="width: 100.0%; height: 100.0%;">id = 20,<br>site = 7109_18.42_99.72,<br> Country = Thailand,<br> Region = Lampang,<br> min = 784.0,<br> max = 1109.0,<br> mean = 959.0,<br> count = 4,<br> start_date = 2001-02-07,<br> end_date = 2004-01-07</div>`)[0];
+            popup_92f2071cef274f5e9b22b87079ecb7c9.setContent(html_bdfde21ffa154bc09586be66b698e2b4);
+        
+
+        marker_ef01dd4d25614066954bbb2ee4921e73.bindPopup(popup_92f2071cef274f5e9b22b87079ecb7c9)
+        ;
+
+        
+    
+    
+            var marker_13cad3b508c04f8c9310482c6f302d44 = L.marker(
+                [55.78333333, -3.233333333],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_e41ecd1ccdaf46aebfb2f0b98d1e01ea = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e6550ce497ab451982c20d3e6c10996b = $(`<div id="html_e6550ce497ab451982c20d3e6c10996b" style="width: 100.0%; height: 100.0%;">id = 21,<br>site = 7444_55.78333333_-3.233333333,<br> Country = Scotland,<br> Region = South East,<br> min = 653.58,<br> max = 751.82,<br> mean = 696.8,<br> count = 4,<br> start_date = 2007-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_e41ecd1ccdaf46aebfb2f0b98d1e01ea.setContent(html_e6550ce497ab451982c20d3e6c10996b);
+        
+
+        marker_13cad3b508c04f8c9310482c6f302d44.bindPopup(popup_e41ecd1ccdaf46aebfb2f0b98d1e01ea)
+        ;
+
+        
+    
+    
+            var marker_3f101de8c3f74602b1b4d348fac367d7 = L.marker(
+                [55.86666667, -3.0333333330000003],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_1aef0ae2a5b6488a8811f640a394d855 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e98a43aa197b47558869b86e90accbfc = $(`<div id="html_e98a43aa197b47558869b86e90accbfc" style="width: 100.0%; height: 100.0%;">id = 22,<br>site = 7444_55.86666667_-3.0333333330000003,<br> Country = Scotland,<br> Region = South East,<br> min = 1755.24,<br> max = 2195.14,<br> mean = 1952.9,<br> count = 4,<br> start_date = 2007-01-01,<br> end_date = 2010-01-01</div>`)[0];
+            popup_1aef0ae2a5b6488a8811f640a394d855.setContent(html_e98a43aa197b47558869b86e90accbfc);
+        
+
+        marker_3f101de8c3f74602b1b4d348fac367d7.bindPopup(popup_1aef0ae2a5b6488a8811f640a394d855)
+        ;
+
+        
+    
+    
+            var marker_4b1585e0c2464301a917e746ca4ff5b6 = L.marker(
+                [36.95, 116.6],
+                {}
+            ).addTo(marker_cluster_0240465cd74b4faf8de7ed9dd84275c0);
+        
+    
+        var popup_81f4ba8514ce40f298d7c593e4bc3806 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_581c5e4d37d042ffab05189d84b1176d = $(`<div id="html_581c5e4d37d042ffab05189d84b1176d" style="width: 100.0%; height: 100.0%;">id = 23,<br>site = 10524_36.95_116.6,<br> Country = China,<br> Region = Shandong,<br> min = 759.0,<br> max = 893.0,<br> mean = 825.2,<br> count = 4,<br> start_date = 2003-02-07,<br> end_date = 2006-02-07</div>`)[0];
+            popup_81f4ba8514ce40f298d7c593e4bc3806.setContent(html_581c5e4d37d042ffab05189d84b1176d);
+        
+
+        marker_4b1585e0c2464301a917e746ca4ff5b6.bindPopup(popup_81f4ba8514ce40f298d7c593e4bc3806)
+        ;
+
+        
+    
+    
+    var color_map_21985fdc4be34f358a5bdea41b34176f = {};
+
+    
+    color_map_21985fdc4be34f358a5bdea41b34176f.color = d3.scale.threshold()
+              .domain([226.0, 229.9461723446894, 233.89234468937875, 237.83851703406813, 241.78468937875752, 245.73086172344688, 249.67703406813627, 253.62320641282565, 257.56937875751504, 261.5155511022044, 265.46172344689376, 269.40789579158314, 273.35406813627253, 277.3002404809619, 281.2464128256513, 285.19258517034064, 289.13875751503, 293.0849298597194, 297.0311022044088, 300.9772745490982, 304.92344689378757, 308.86961923847696, 312.8157915831663, 316.7619639278557, 320.70813627254506, 324.65430861723445, 328.60048096192384, 332.54665330661317, 336.49282565130255, 340.43899799599194, 344.3851703406813, 348.3313426853707, 352.2775150300601, 356.2236873747495, 360.1698597194388, 364.1160320641282, 368.0622044088176, 372.008376753507, 375.95454909819637, 379.9007214428857, 383.84689378757514, 387.79306613226447, 391.73923847695386, 395.68541082164325, 399.6315831663326, 403.577755511022, 407.52392785571135, 411.47010020040074, 415.4162725450901, 419.3624448897795, 423.3086172344689, 427.2547895791582, 431.2009619238477, 435.147134268537, 439.0933066132264, 443.0394789579158, 446.9856513026051, 450.93182364729455, 454.8779959919839, 458.82416833667327, 462.77034068136265, 466.71651302605204, 470.6626853707414, 474.60885771543076, 478.5550300601202, 482.50120240480953, 486.4473747494989, 490.39354709418825, 494.3397194388777, 498.2858917835671, 502.2320641282564, 506.1782364729458, 510.1244088176352, 514.0705811623245, 518.016753507014, 521.9629258517033, 525.9090981963927, 529.8552705410821, 533.8014428857714, 537.7476152304607, 541.6937875751503, 545.6399599198396, 549.5861322645289, 553.5323046092183, 557.4784769539077, 561.4246492985972, 565.3708216432865, 569.3169939879758, 573.2631663326652, 577.2093386773547, 581.155511022044, 585.1016833667334, 589.0478557114227, 592.9940280561121, 596.9402004008015, 600.8863727454909, 604.8325450901802, 608.7787174348696, 612.724889779559, 616.6710621242484, 620.6172344689378, 624.5634068136271, 628.5095791583165, 632.4557515030058, 636.4019238476953, 640.3480961923847, 644.294268537074, 648.2404408817633, 652.1866132264528, 656.1327855711422, 660.0789579158316, 664.0251302605209, 667.9713026052102, 671.9174749498998, 675.8636472945891, 679.8098196392784, 683.7559919839678, 687.7021643286572, 691.6483366733465, 695.594509018036, 699.5406813627253, 703.4868537074146, 707.4330260521041, 711.3791983967934, 715.3253707414829, 719.2715430861722, 723.2177154308615, 727.1638877755508, 731.1100601202404, 735.0562324649297, 739.0024048096191, 742.9485771543084, 746.8947494989978, 750.8409218436873, 754.7870941883765, 758.733266533066, 762.6794388777554, 766.6256112224447, 770.5717835671342, 774.5179559118235, 778.4641282565128, 782.4103006012023, 786.3564729458916, 790.3026452905809, 794.2488176352704, 798.1949899799598, 802.1411623246491, 806.0873346693385, 810.0335070140279, 813.9796793587172, 817.9258517034066, 821.872024048096, 825.8181963927854, 829.7643687374748, 833.7105410821642, 837.6567134268535, 841.6028857715429, 845.5490581162323, 849.4952304609216, 853.441402805611, 857.3875751503004, 861.3337474949898, 865.2799198396792, 869.2260921843686, 873.1722645290579, 877.1184368737473, 881.0646092184367, 885.010781563126, 888.9569539078154, 892.9031262525049, 896.8492985971942, 900.7954709418835, 904.741643286573, 908.6878156312623, 912.6339879759516, 916.5801603206411, 920.5263326653304, 924.4725050100199, 928.4186773547093, 932.3648496993985, 936.311022044088, 940.2571943887774, 944.2033667334666, 948.1495390781561, 952.0957114228455, 956.0418837675348, 959.9880561122243, 963.9342284569136, 967.880400801603, 971.8265731462924, 975.7727454909817, 979.718917835671, 983.6650901803605, 987.6112625250499, 991.5574348697393, 995.5036072144286, 999.449779559118, 1003.3959519038074, 1007.3421242484967, 1011.2882965931861, 1015.2344689378755, 1019.1806412825649, 1023.1268136272544, 1027.0729859719436, 1031.019158316633, 1034.9653306613225, 1038.9115030060116, 1042.8576753507011, 1046.8038476953907, 1050.75002004008, 1054.6961923847693, 1058.6423647294587, 1062.588537074148, 1066.5347094188373, 1070.4808817635267, 1074.427054108216, 1078.3732264529056, 1082.319398797595, 1086.2655711422844, 1090.2117434869738, 1094.157915831663, 1098.1040881763524, 1102.0502605210418, 1105.996432865731, 1109.9426052104204, 1113.88877755511, 1117.8349498997995, 1121.7811222444886, 1125.7272945891782, 1129.6734669338675, 1133.6196392785569, 1137.5658116232462, 1141.5119839679355, 1145.4581563126249, 1149.4043286573144, 1153.3505010020037, 1157.296673346693, 1161.2428456913826, 1165.189018036072, 1169.1351903807613, 1173.0813627254506, 1177.02753507014, 1180.9737074148293, 1184.9198797595186, 1188.8660521042082, 1192.8122244488975, 1196.7583967935868, 1200.7045691382764, 1204.6507414829657, 1208.596913827655, 1212.5430861723444, 1216.4892585170337, 1220.435430861723, 1224.3816032064126, 1228.3277755511017, 1232.2739478957913, 1236.2201202404808, 1240.1662925851701, 1244.1124649298595, 1248.0586372745488, 1252.0048096192381, 1255.9509819639277, 1259.8971543086168, 1263.8433266533063, 1267.7894989979957, 1271.735671342685, 1275.6818436873746, 1279.628016032064, 1283.574188376753, 1287.5203607214426, 1291.466533066132, 1295.4127054108212, 1299.3588777555108, 1303.3050501002, 1307.2512224448894, 1311.197394789579, 1315.1435671342683, 1319.0897394789574, 1323.035911823647, 1326.9820841683363, 1330.9282565130256, 1334.8744288577152, 1338.8206012024045, 1342.7667735470939, 1346.7129458917832, 1350.6591182364725, 1354.6052905811619, 1358.5514629258514, 1362.4976352705407, 1366.44380761523, 1370.3899799599196, 1374.336152304609, 1378.2823246492983, 1382.2284969939876, 1386.174669338677, 1390.1208416833663, 1394.0670140280558, 1398.0131863727452, 1401.9593587174345, 1405.905531062124, 1409.8517034068132, 1413.7978757515025, 1417.744048096192, 1421.6902204408814, 1425.6363927855707, 1429.5825651302603, 1433.5287374749496, 1437.474909819639, 1441.4210821643285, 1445.3672545090176, 1449.313426853707, 1453.2595991983965, 1457.2057715430858, 1461.1519438877751, 1465.0981162324647, 1469.044288577154, 1472.9904609218431, 1476.9366332665327, 1480.882805611222, 1484.8289779559113, 1488.775150300601, 1492.7213226452902, 1496.6674949899796, 1500.6136673346691, 1504.5598396793584, 1508.5060120240475, 1512.452184368737, 1516.3983567134264, 1520.3445290581158, 1524.2907014028053, 1528.2368737474947, 1532.183046092184, 1536.1292184368733, 1540.0753907815626, 1544.021563126252, 1547.9677354709415, 1551.9139078156309, 1555.8600801603202, 1559.8062525050098, 1563.752424849699, 1567.6985971943884, 1571.6447695390777, 1575.590941883767, 1579.5371142284564, 1583.483286573146, 1587.4294589178353, 1591.3756312625246, 1595.3218036072142, 1599.2679759519033, 1603.2141482965926, 1607.1603206412822, 1611.1064929859715, 1615.0526653306608, 1618.9988376753504, 1622.9450100200397, 1626.891182364729, 1630.8373547094186, 1634.7835270541077, 1638.729699398797, 1642.6758717434866, 1646.622044088176, 1650.5682164328653, 1654.5143887775548, 1658.4605611222441, 1662.4067334669332, 1666.3529058116228, 1670.2990781563121, 1674.2452505010015, 1678.191422845691, 1682.1375951903804, 1686.0837675350697, 1690.0299398797592, 1693.9761122244486, 1697.9222845691377, 1701.8684569138272, 1705.8146292585166, 1709.760801603206, 1713.7069739478954, 1717.6531462925848, 1721.599318637274, 1725.5454909819634, 1729.4916633266528, 1733.437835671342, 1737.3840080160317, 1741.330180360721, 1745.2763527054103, 1749.2225250500999, 1753.1686973947892, 1757.1148697394785, 1761.0610420841679, 1765.0072144288572, 1768.9533867735465, 1772.899559118236, 1776.8457314629254, 1780.7919038076147, 1784.7380761523043, 1788.6842484969934, 1792.6304208416827, 1796.5765931863723, 1800.5227655310616, 1804.468937875751, 1808.4151102204405, 1812.3612825651298, 1816.3074549098192, 1820.2536272545087, 1824.1997995991978, 1828.1459719438872, 1832.0921442885767, 1836.038316633266, 1839.9844889779554, 1843.930661322645, 1847.8768336673343, 1851.8230060120234, 1855.769178356713, 1859.7153507014023, 1863.6615230460916, 1867.6076953907811, 1871.5538677354705, 1875.5000400801598, 1879.4462124248494, 1883.3923847695387, 1887.3385571142278, 1891.2847294589174, 1895.2309018036067, 1899.177074148296, 1903.1232464929856, 1907.069418837675, 1911.0155911823642, 1914.9617635270536, 1918.907935871743, 1922.8541082164322, 1926.8002805611218, 1930.746452905811, 1934.6926252505004, 1938.63879759519, 1942.5849699398793, 1946.5311422845687, 1950.477314629258, 1954.4234869739473, 1958.3696593186366, 1962.3158316633262, 1966.2620040080155, 1970.2081763527049, 1974.1543486973944, 1978.1005210420835, 1982.0466933867729, 1985.9928657314624, 1989.9390380761517, 1993.885210420841, 1997.8313827655306, 2001.77755511022, 2005.7237274549093, 2009.6698997995989, 2013.616072144288, 2017.5622444889773, 2021.5084168336668, 2025.4545891783562, 2029.4007615230455, 2033.346933867735, 2037.2931062124244, 2041.2392785571135, 2045.185450901803, 2049.1316232464924, 2053.0777955911817, 2057.023967935871, 2060.9701402805604, 2064.9163126252497, 2068.8624849699395, 2072.808657314629, 2076.7548296593177, 2080.7010020040075, 2084.647174348697, 2088.593346693386, 2092.539519038076, 2096.4856913827653, 2100.4318637274546, 2104.378036072144, 2108.3242084168332, 2112.2703807615226, 2116.216553106212, 2120.1627254509012, 2124.1088977955906, 2128.05507014028, 2132.001242484969, 2135.9474148296586, 2139.893587174348, 2143.839759519037, 2147.7859318637265, 2151.7321042084163, 2155.6782765531057, 2159.624448897795, 2163.570621242485, 2167.5167935871737, 2171.462965931863, 2175.4091382765528, 2179.355310621242, 2183.3014829659314, 2187.2476553106208, 2191.19382765531, 2195.1399999999994])
+              .range(['#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#9e0142ff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#d53e4fff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#f46d43ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#fee08bff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#e6f598ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#66c2a5ff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#3288bdff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff', '#5e4fa2ff']);
+    
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.x = d3.scale.linear()
+              .domain([226.0, 2195.1399999999994])
+              .range([0, 400]);
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.legend = L.control({position: 'topright'});
+    color_map_21985fdc4be34f358a5bdea41b34176f.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_21985fdc4be34f358a5bdea41b34176f.legend.addTo(map_8d6829d47272465e8f94df5a8adefe80);
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.xAxis = d3.svg.axis()
+        .scale(color_map_21985fdc4be34f358a5bdea41b34176f.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([226.0, '', 584.0254545454545, '', 942.050909090909, '', 1300.0763636363636, '', 1658.101818181818, '', 2016.1272727272726, '']);
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.g = color_map_21985fdc4be34f358a5bdea41b34176f.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.g.selectAll("rect")
+        .data(color_map_21985fdc4be34f358a5bdea41b34176f.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_21985fdc4be34f358a5bdea41b34176f.x(color_map_21985fdc4be34f358a5bdea41b34176f.color.domain()[i - 1]) : color_map_21985fdc4be34f358a5bdea41b34176f.x.range()[0],
+            x1: i < color_map_21985fdc4be34f358a5bdea41b34176f.color.domain().length ? color_map_21985fdc4be34f358a5bdea41b34176f.x(color_map_21985fdc4be34f358a5bdea41b34176f.color.domain()[i]) : color_map_21985fdc4be34f358a5bdea41b34176f.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 10)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_21985fdc4be34f358a5bdea41b34176f.g.call(color_map_21985fdc4be34f358a5bdea41b34176f.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text('');
+    
+            var layer_control_fe2a891bfc5841978ddff96eec0c37f9 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_50b45971048246ac9cee98b009b989b0,
+                    "stamenterrain" : tile_layer_1809721783194b1caae92b6235979f81,
+                    "stamentoner" : tile_layer_4a1f6d88f7cf44debcca3708b0e8a91f,
+                    "Esri Satellite" : tile_layer_35d889c148a8421aa8c8ef4e6b45c759,
+                },
+                overlays :  {
+                    "Rs_annual choropleth" : feature_group_302dd47f3f444bb49bcc54d8ed298bdb,
+                    "Rs_annual site" : feature_group_bdd675529b104529afc15ea1e528bf58,
+                },
+            };
+            L.control.layers(
+                layer_control_fe2a891bfc5841978ddff96eec0c37f9.base_layers,
+                layer_control_fe2a891bfc5841978ddff96eec0c37f9.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_8d6829d47272465e8f94df5a8adefe80);
+            tile_layer_1809721783194b1caae92b6235979f81.remove();
+            tile_layer_4a1f6d88f7cf44debcca3708b0e8a91f.remove();
+            tile_layer_35d889c148a8421aa8c8ef4e6b45c759.remove();
+        
+</script>
